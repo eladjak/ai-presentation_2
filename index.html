@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>מגלים את עולם הבינה המלאכותית - שיעור שני</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700&display=swap');
         body {
@@ -14,7 +13,7 @@
             color: #e2e8f0;
         }
         .reveal, .reveal h1, .reveal h2, .reveal h3, .reveal p, .reveal li {
-            font-family: 'Rubik', sans-serif;
+            font-family: 'Rubik', Arial, sans-serif;
         }
         .reveal section { 
             text-align: center;
@@ -23,76 +22,45 @@
         .reveal h1, .reveal h2 { 
             color: #63b3ed;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            background: linear-gradient(45deg, #63b3ed, #4299e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2.8em;
         }
         .reveal ul { 
             display: inline-block; 
             text-align: right;
             font-size: 1.3em;
         }
-        .reveal .emoji { font-size: 2.8em; }
+        .reveal .emoji { font-size: 2em; }
         .reveal .highlight { 
             color: #fbd38d;
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
-        .reveal .small { font-size: 0.9em; }
-        .reveal .svg-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 350px;
-            margin: 20px 0;
-        }
-        .reveal .grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 30px; 
-            align-items: center;
-        }
-        .reveal .warning { 
-            color: #fc8181;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
+        .reveal .small { font-size: 0.7em; }
         .reveal .custom-background { 
             background: linear-gradient(45deg, #2d3748, #1a202c);
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            margin: 25px 0;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            margin: 20px 0;
         }
         .reveal .card {
             background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 15px;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
         .reveal .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
         }
         .reveal .animate-char {
             display: inline-block;
             animation: bounce 1s ease infinite;
-            opacity: 0;
-            animation: fadeInBounce 2s forwards;
             animation-delay: calc(var(--char-index) * 0.1s);
         }
-        @keyframes fadeInBounce {
-            0% { opacity: 0; transform: translateY(20px); }
-            50% { opacity: 1; transform: translateY(-10px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         .reveal .interactive-prompt {
             background: #fbd38d;
@@ -121,15 +89,6 @@
         .reveal .show-response {
             opacity: 1;
             transform: translateY(0);
-        }
-        .reveal .slide-background {
-            background: radial-gradient(circle, #2d3748, #1a202c);
-        }
-        .reveal .controls {
-            color: #63b3ed;
-        }
-        .reveal .progress {
-            color: #4299e1;
         }
         .reveal .quiz-container {
             margin-top: 20px;
@@ -170,88 +129,49 @@
             min-height: 50px;
             width: 200px;
         }
-        @media (max-width: 768px) {
-            .reveal section { font-size: 22px; }
-            .reveal h1, .reveal h2 { font-size: 2.2em; }
-            .reveal .grid { grid-template-columns: 1fr; }
-            .reveal .svg-container { height: 250px; }
-        }
     </style>
 </head>
 <body>
     <div class="reveal">
         <div class="slides">
-            <section data-background="radial-gradient(circle, #2d3748, #1a202c)">
-                <h1 id="main-title">
+            <section>
+                <h1>
                     <span class="animate-char" style="--char-index: 1;">מ</span><span class="animate-char" style="--char-index: 2;">ג</span><span class="animate-char" style="--char-index: 3;">ל</span><span class="animate-char" style="--char-index: 4;">י</span><span class="animate-char" style="--char-index: 5;">ם</span>
                     <span class="animate-char" style="--char-index: 6;">א</span><span class="animate-char" style="--char-index: 7;">ת</span>
                     <span class="animate-char" style="--char-index: 8;">ע</span><span class="animate-char" style="--char-index: 9;">ו</span><span class="animate-char" style="--char-index: 10;">ל</span><span class="animate-char" style="--char-index: 11;">ם</span>
                     <span class="animate-char" style="--char-index: 12;">ה</span><span class="animate-char" style="--char-index: 13;">ב</span><span class="animate-char" style="--char-index: 14;">י</span><span class="animate-char" style="--char-index: 15;">נ</span><span class="animate-char" style="--char-index: 16;">ה</span>
                     <span class="animate-char" style="--char-index: 17;">ה</span><span class="animate-char" style="--char-index: 18;">מ</span><span class="animate-char" style="--char-index: 19;">ל</span><span class="animate-char" style="--char-index: 20;">א</span><span class="animate-char" style="--char-index: 21;">כ</span><span class="animate-char" style="--char-index: 22;">ו</span><span class="animate-char" style="--char-index: 23;">ת</span><span class="animate-char" style="--char-index: 24;">י</span><span class="animate-char" style="--char-index: 25;">ת</span>
                 </h1>
-                <h3 id="subtitle" class="fragment" data-fragment-index="1">שיעור שני: פרומפטים ומשימות ראשונות</h3>
-                <p class="emoji fragment" data-fragment-index="2">🤖🧠💡</p>
-                <div class="svg-container fragment" data-fragment-index="3">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        <circle cx="100" cy="100" r="90" fill="#4299e1" opacity="0.2">
-                            <animate attributeName="r" values="90;95;90" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="100" cy="100" r="70" fill="#4299e1" opacity="0.4">
-                            <animate attributeName="r" values="70;75;70" dur="3s" repeatCount="indefinite" begin="1s"/>
-                        </circle>
-                        <circle cx="100" cy="100" r="50" fill="#4299e1" opacity="0.6">
-                            <animate attributeName="r" values="50;55;50" dur="3s" repeatCount="indefinite" begin="2s"/>
-                        </circle>
-                    </svg>
+                <h3>שיעור שני: פרומפטים ומשימות ראשונות</h3>
+                <p class="emoji">&#x1F916;&#x1F9E0;&#x1F4A1;</p>
+            </section>
+
+            <section>
+                <h2>מה למדנו בשיעור הקודם?</h2>
+                <div class="custom-background">
+                    <ul>
+                        <li>הגדרה של בינה מלאכותית</li>
+                        <li>דוגמאות ל-AI בחיי היומיום</li>
+                        <li>סוגים שונים של מודלי AI</li>
+                        <li>יתרונות ואתגרים של טכנולוגיית AI</li>
+                        <li>חשיבות הבנת AI לעתיד שלנו</li>
+                    </ul>
                 </div>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">מה למדנו בשיעור הקודם? 🔍</h2>
-                <div class="custom-background fragment" data-fragment-index="2">
-                    <div class="grid">
-                        <ul>
-                            <li class="fragment" data-fragment-index="3">הגדרה של בינה מלאכותית</li>
-                            <li class="fragment" data-fragment-index="4">דוגמאות ל-AI בחיי היומיום</li>
-                            <li class="fragment" data-fragment-index="5">סוגים שונים של מודלי AI</li>
-                        </ul>
-                        <ul>
-                            <li class="fragment" data-fragment-index="6">יתרונות ואתגרים של טכנולוגיית AI</li>
-                            <li class="fragment" data-fragment-index="7">חשיבות הבנת AI לעתיד שלנו</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="svg-container fragment" data-fragment-index="8">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        <rect x="20" y="20" width="160" height="30" rx="15" fill="#4299e1" opacity="0.7">
-                            <animate attributeName="width" values="0;160" dur="1s" fill="freeze"/>
-                        </rect>
-                        <rect x="20" y="60" width="160" height="30" rx="15" fill="#4299e1" opacity="0.7">
-                            <animate attributeName="width" values="0;160" dur="1s" begin="0.2s" fill="freeze"/>
-                        </rect>
-                        <rect x="20" y="100" width="160" height="30" rx="15" fill="#4299e1" opacity="0.7">
-                            <animate attributeName="width" values="0;160" dur="1s" begin="0.4s" fill="freeze"/>
-                        </rect>
-                        <rect x="20" y="140" width="160" height="30" rx="15" fill="#4299e1" opacity="0.7">
-                            <animate attributeName="width" values="0;160" dur="1s" begin="0.6s" fill="freeze"/>
-                        </rect>
-                    </svg>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">על מה נדבר היום? 📋</h2>
-                <div class="grid fragment" data-fragment-index="2">
-                    <div class="card fragment" data-fragment-index="3">
-                        <h3>🗨️ פרומפטים</h3>
+                <h2>על מה נדבר היום?</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>&#x1F4AC; פרומפטים</h3>
                         <ul>
                             <li>מהו פרומפט?</li>
                             <li>חשיבות הפרומפט</li>
                             <li>בניית פרומפט מוצלח</li>
                         </ul>
                     </div>
-                    <div class="card fragment" data-fragment-index="4">
-                        <h3>💻 עבודה מעשית</h3>
+                    <div class="card">
+                        <h3>&#x1F4BB; עבודה מעשית</h3>
                         <ul>
                             <li>תרגול יצירת פרומפטים</li>
                             <li>עבודה עם מודל שפה</li>
@@ -259,85 +179,29 @@
                         </ul>
                     </div>
                 </div>
-                <div class="svg-container fragment" data-fragment-index="5">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        <path d="M100 20 A80 80 0 0 1 180 100 L100 100 Z" fill="#4299e1">
-                            <animate attributeName="fill-opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M180 100 A80 80 0 0 1 100 180 L100 100 Z" fill="#fbd38d">
-                            <animate attributeName="fill-opacity" values="0.2;0.5;0.2" dur="3s" begin="1s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M100 180 A80 80 0 0 1 20 100 L100 100 Z" fill="#68d391">
-                            <animate attributeName="fill-opacity" values="0.2;0.5;0.2" dur="3s" begin="2s" repeatCount="indefinite"/>
-                        </path>
-                        <path d="M20 100 A80 80 0 0 1 100 20 L100 100 Z" fill="#f687b3">
-                            <animate attributeName="fill-opacity" values="0.2;0.5;0.2" dur="3s" begin="3s" repeatCount="indefinite"/>
-                        </path>
-                    </svg>
+            </section>
+
+            <section>
+                <h2>מהו פרומפט?</h2>
+                <p>הוראה או שאלה שאנחנו נותנים לבינה מלאכותית</p>
+            </section>
+
+            <section>
+                <h2>חלקי הפרומפט המושלם</h2>
+                <div class="custom-background">
+                    <ol>
+                        <li>הצגה עצמית</li>
+                        <li>הגדרת המשימה</li>
+                        <li>פירוט העזרה הנדרשת</li>
+                        <li>הנחיות נוספות</li>
+                    </ol>
                 </div>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">מהו פרומפט? 🗨️</h2>
-                <p class="fragment" data-fragment-index="2">הוראה או שאלה שאנחנו נותנים לבינה מלאכותית</p>
-                <div class="svg-container fragment" data-fragment-index="3">
-                    <svg width="300" height="200" viewBox="0 0 300 200">
-                        <defs>
-                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="10" y="50" width="280" height="100" rx="20" fill="url(#grad1)"/>
-                        <text x="150" y="110" font-size="28" text-anchor="middle" fill="#ffffff">שאלה לAI</text>
-                        <path d="M150 150 L130 180 L170 180 Z" fill="#2b6cb0">
-                            <animate attributeName="d" values="M150 150 L130 180 L170 180 Z; M150 160 L140 180 L160 180 Z; M150 150 L130 180 L170 180 Z" dur="2s" repeatCount="indefinite"/>
-                        </path>
-                        <circle cx="50" cy="40" r="15" fill="#fbd38d">
-                            <animate attributeName="cy" values="40;30;40" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                        <circle cx="250" cy="160" r="10" fill="#68d391">
-                            <animate attributeName="r" values="10;15;10" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                    </svg>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">חלקי הפרומפט המושלם 🧩</h2>
-                <div class="svg-container fragment" data-fragment-index="2">
-                    <svg width="400" height="300" viewBox="0 0 400 300">
-                        <defs>
-                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="10" y="10" width="380" height="280" rx="20" fill="url(#grad2)"/>
-                        <rect x="20" y="20" width="360" height="60" rx="10" fill="#ffffff" opacity="0.8">
-                            <animate attributeName="width" values="0;360" dur="1s" fill="freeze"/>
-                        </rect>
-                        <text x="200" y="55" font-size="22" text-anchor="middle" fill="#2b6cb0">הצגה עצמית</text>
-                        <rect x="20" y="90" width="360" height="60" rx="10" fill="#ffffff" opacity="0.8">
-                            <animate attributeName="width" values="0;360" dur="1s" begin="0.5s" fill="freeze"/>
-                        </rect>
-                        <text x="200" y="125" font-size="22" text-anchor="middle" fill="#2b6cb0">הגדרת המשימה</text>
-                        <rect x="20" y="160" width="360" height="60" rx="10" fill="#ffffff" opacity="0.8">
-                            <animate attributeName="width" values="0;360" dur="1s" begin="1s" fill="freeze"/>
-                        </rect>
-                        <text x="200" y="195" font-size="22" text-anchor="middle" fill="#2b6cb0">פירוט העזרה הנדרשת</text>
-                        <rect x="20" y="230" width="360" height="50" rx="10" fill="#ffffff" opacity="0.8">
-                            <animate attributeName="width" values="0;360" dur="1s" begin="1.5s" fill="freeze"/>
-                        </rect>
-                        <text x="200" y="260" font-size="22" text-anchor="middle" fill="#2b6cb0">הנחיות נוספות</text>
-                    </svg>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">דוגמה לפרומפט מושלם 🌟</h2>
-                <div class="custom-background fragment" data-fragment-index="2">
-                    <p class="small" style="font-size: 1.2em; line-height: 1.6;">
+                <h2>דוגמה לפרומפט מושלם</h2>
+                <div class="custom-background">
+                    <p class="small">
                         <span class="highlight">הצגה עצמית:</span> "שלום, אני תלמיד כיתה ו' שמתעניין במדע."<br>
                         <span class="highlight">הגדרת המשימה:</span> "אני עובד על פרויקט על מערכת השמש."<br>
                         <span class="highlight">פירוט העזרה:</span> "אשמח אם תוכל לעזור לי להסביר את מסלולי כוכבי הלכת סביב השמש."<br>
@@ -347,53 +211,18 @@
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">למה פרומפט חשוב? 🎯</h2>
-                <div class="grid fragment" data-fragment-index="2">
-                    <div>
-                        <ul>
-                            <li class="fragment" data-fragment-index="3">עוזר לAI להבין מה אנחנו רוצים</li>
-                            <li class="fragment" data-fragment-index="4">משפיע על איכות התשובה שנקבל</li>
-                            <li class="fragment" data-fragment-index="5">מאפשר לנו לכוון את הAI למטרה שלנו</li>
-                        </ul>
-                    </div>
-                    <div class="svg-container fragment" data-fragment-index="6">
-                        <svg width="200" height="200" viewBox="0 0 200 200">
-                            <defs>
-                                <radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                                    <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
-                                    <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
-                                </radialGradient>
-                            </defs>
-                            <circle cx="100" cy="100" r="90" fill="url(#grad3)">
-                                <animate attributeName="r" values="90;95;90" dur="3s" repeatCount="indefinite"/>
-                            </circle>
-                            <circle cx="100" cy="100" r="70" fill="#ffffff" opacity="0.3"/>
-                            <circle cx="100" cy="100" r="50" fill="#ffffff" opacity="0.5"/>
-                            <circle cx="100" cy="100" r="30" fill="#ffffff" opacity="0.7"/>
-                            <text x="100" y="105" font-size="24" text-anchor="middle" fill="#2b6cb0">AI</text>
-                        </svg>
-                    </div>
-                </div>
+                <h2>למה פרומפט חשוב?</h2>
+                <ul>
+                    <li>עוזר לAI להבין מה אנחנו רוצים</li>
+                    <li>משפיע על איכות התשובה שנקבל</li>
+                    <li>מאפשר לנו לכוון את הAI למטרה שלנו</li>
+                </ul>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">דוגמאות לפרומפטים 📝</h2>
-                <div class="grid fragment" data-fragment-index="2">
-                    <div class="card fragment" data-fragment-index="3">
-                        <p class="highlight" style="font-size: 1.3em;">פרומפט טוב:</p>
-                        <p style="font-size: 1.1em;">"אני תלמיד כיתה ה'. אנא כתוב סיפור קצר על חתול שהציל את העיר שלו. הסיפור צריך להיות באורך של 5 משפטים ומתאים לילדים בגילי."</p>
-                    </div>
-                    <div class="card fragment" data-fragment-index="4">
-                        <p class="highlight" style="font-size: 1.3em;">פרומפט פחות טוב:</p>
-                        <p style="font-size: 1.1em;">"ספר לי על חתולים."</p>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">בואו נתרגל! 🏋️‍♀️</h2>
-                <p class="fragment" data-fragment-index="2">עבדו בזוגות וצרו פרומפטים על:</p>
-                <div class="grid fragment" data-fragment-index="3">
+                <h2>בואו נתרגל!</h2>
+                <p>עבדו בזוגות וצרו פרומפטים על:</p>
+                <div class="grid">
                     <div class="card">
                         <ul>
                             <li>החיה האהובה עליכם</li>
@@ -407,192 +236,82 @@
                         </ul>
                     </div>
                 </div>
-                <p class="emoji fragment" data-fragment-index="4">👥✍️💭</p>
-                <div class="interactive-prompt fragment" data-fragment-index="5" onclick="showRandomPrompt()">לחצו כאן לקבלת רעיון אקראי לפרומפט!</div>
+                <p class="emoji">&#x1F465;&#x270D;&#x1F4AD;</p>
+                <div class="interactive-prompt" onclick="showRandomPrompt()">לחצו כאן לקבלת רעיון אקראי לפרומפט!</div>
                 <p id="random-prompt" class="ai-response"></p>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">עובדים עם מודל שפה 💻</h2>
-                <p class="fragment" data-fragment-index="2">נשתמש ב-ChatGPT (באתר OpenAI)</p>
-                <div class="svg-container fragment" data-fragment-index="3">
-                    <svg width="300" height="200" viewBox="0 0 300 200">
-                        <defs>
-                            <linearGradient id="grad4" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="10" y="10" width="280" height="180" rx="10" fill="url(#grad4)"/>
-                        <rect x="20" y="20" width="260" height="30" rx="5" fill="#ffffff" opacity="0.8"/>
-                        <rect x="20" y="60" width="200" height="20" rx="5" fill="#ffffff" opacity="0.6">
-                            <animate attributeName="width" values="0;200" dur="2s" begin="0s" fill="freeze"/>
-                        </rect>
-                        <rect x="20" y="90" width="240" height="20" rx="5" fill="#ffffff" opacity="0.6">
-                            <animate attributeName="width" values="0;240" dur="2s" begin="0.5s" fill="freeze"/>
-                        </rect>
-                        <rect x="20" y="120" width="180" height="20" rx="5" fill="#ffffff" opacity="0.6">
-                            <animate attributeName="width" values="0;180" dur="2s" begin="1s" fill="freeze"/>
-                        </rect>
-                        <rect x="20" y="160" width="260" height="20" rx="5" fill="#ffffff" opacity="0.8"/>
-                        <text x="150" y="40" font-size="18" text-anchor="middle" fill="#2b6cb0">ChatGPT</text>
-                    </svg>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">בניית פרומפט - משחק גרירה ושחרור 🧩</h2>
-                <p class="fragment" data-fragment-index="2">גררו את החלקים למקום הנכון כדי ליצור פרומפט מושלם!</p>
-                <div class="drag-container fragment" data-fragment-index="3">
-                    <div class="draggable" draggable="true">הצגה עצמית</div>
-                    <div class="draggable" draggable="true">הגדרת המשימה</div>
-                    <div class="draggable" draggable="true">פירוט העזרה הנדרשת</div>
-                    <div class="draggable" draggable="true">הנחיות נוספות</div>
-                </div>
-                <div class="drop-zone fragment" data-fragment-index="4">
-                    <p>גררו לכאן</p>
-                </div>
-                <p id="drag-result" class="fragment" data-fragment-index="5"></p>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">בטיחות בשימוש ב-AI 🛡️</h2>
-                <div class="custom-background fragment" data-fragment-index="2">
-                    <ul style="font-size: 1.2em;">
-                        <li class="warning fragment" data-fragment-index="3">אל תשתפו מידע אישי!</li>
-                        <li class="fragment" data-fragment-index="4">בדקו תשובות עם מבוגר אחראי</li>
-                        <li class="fragment" data-fragment-index="5">השתמשו רק בכלים מאושרים</li>
-                        <li class="fragment" data-fragment-index="6">זכרו: AI יכול לטעות</li>
-                        <li class="fragment" data-fragment-index="7">חשבו בביקורתיות על התשובות</li>
+                <h2>בטיחות בשימוש ב-AI</h2>
+                <div class="custom-background">
+                    <ul>
+                        <li class="highlight">אל תשתפו מידע אישי!</li>
+                        <li>בדקו תשובות עם מבוגר אחראי</li>
+                        <li>השתמשו רק בכלים מאושרים</li>
+                        <li>זכרו: AI יכול לטעות</li>
+                        <li>חשבו בביקורתיות על התשובות</li>
                     </ul>
                 </div>
-                <p class="small fragment" data-fragment-index="8" style="font-size: 1.1em;">הקו האדום: אל תשתפו מידע שיכול לזהות אתכם או את חבריכם</p>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">חידון בטיחות ב-AI 🧠</h2>
-                <div class="quiz-container fragment" data-fragment-index="2">
+                <h2>חידון בטיחות ב-AI</h2>
+                <div class="quiz-container">
                     <p>מה לא כדאי לשתף עם AI?</p>
                     <div class="quiz-option" onclick="checkAnswer('a')">א. שם של חיית מחמד</div>
                     <div class="quiz-option" onclick="checkAnswer('b')">ב. כתובת הבית שלכם</div>
                     <div class="quiz-option" onclick="checkAnswer('c')">ג. צבע אהוב</div>
                     <div class="quiz-option" onclick="checkAnswer('d')">ד. תחביב</div>
                 </div>
-                <p id="quiz-result" class="quiz-result fragment" data-fragment-index="3"></p>
+                <p id="quiz-result" class="quiz-result"></p>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">למה חשוב להיזהר? 🤔</h2>
-                <div class="grid fragment" data-fragment-index="2">
+                <h2>משימות לתרגול</h2>
+                <div class="grid">
                     <div>
-                        <ul style="font-size: 1.2em;">
-                            <li class="fragment" data-fragment-index="3">מידע אישי יכול להישמר במערכת</li>
-                            <li class="fragment" data-fragment-index="4">AI לא תמיד מבין הקשר או רגשות</li>
-                            <li class="fragment" data-fragment-index="5">תשובות עלולות להיות לא מדויקות</li>
-                        </ul>
-                    </div>
-                    <div class="svg-container fragment" data-fragment-index="6">
-                        <svg width="200" height="200" viewBox="0 0 200 200">
-                            <path d="M100 20 L180 180 L20 180 Z" fill="#fc8181">
-                                <animate attributeName="d" values="M100 20 L180 180 L20 180 Z; M100 40 L160 160 L40 160 Z; M100 20 L180 180 L20 180 Z" dur="3s" repeatCount="indefinite"/>
-                            </path>
-                            <text x="100" y="140" font-size="60" text-anchor="middle" fill="#ffffff">!</text>
-                        </svg>
-                    </div>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="fragment" data-fragment-index="1">משימות לתרגול 📚</h2>
-                <div class="grid fragment" data-fragment-index="2">
-                    <div>
-                        <ol style="font-size: 1.2em;">
-                            <li class="fragment" data-fragment-index="3">בקשו סיפור קצר על חיה אהובה</li>
-                            <li class="fragment" data-fragment-index="4">בקשו עזרה בפתרון בעיה מתמטית פשוטה</li>
+                        <ol>
+                            <li>בקשו סיפור קצר על חיה אהובה</li>
+                            <li>בקשו עזרה בפתרון בעיה מתמטית פשוטה</li>
                         </ol>
                     </div>
                     <div>
-                        <ol start="3" style="font-size: 1.2em;">
-                            <li class="fragment" data-fragment-index="5">בקשו רעיונות לפרויקט מדעי</li>
-                            <li class="fragment" data-fragment-index="6">בקשו טיפים לשמירה על איכות הסביבה</li>
+                        <ol start="3">
+                            <li>בקשו רעיונות לפרויקט מדעי</li>
+                            <li>בקשו טיפים לשמירה על איכות הסביבה</li>
                         </ol>
                     </div>
-                </div>
-                <div class="svg-container fragment" data-fragment-index="7">
-                    <svg width="300" height="200" viewBox="0 0 300 200">
-                        <rect x="10" y="10" width="280" height="180" rx="10" fill="url(#grad4)"/>
-                        <text x="150" y="50" font-size="18" text-anchor="middle" fill="#f2e9e4">דוגמה לתשובת AI:</text>
-                        <rect x="20" y="70" width="260" height="100" rx="5" fill="#4299e1" opacity="0.7"/>
-                        <text x="150" y="100" font-size="14" text-anchor="middle" fill="#f2e9e4">טיפים לשמירה על הסביבה:</text>
-                        <text x="150" y="130" font-size="12" text-anchor="middle" fill="#f2e9e4">1. מחזרו בקבוקים ונייר</text>
-                        <text x="150" y="150" font-size="12" text-anchor="middle" fill="#f2e9e4">2. חסכו במים וחשמל</text>
-                        <text x="150" y="170" font-size="12" text-anchor="middle" fill="#f2e9e4">3. השתמשו בתחבורה ציבורית</text>
-                    </svg>
                 </div>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">מה היה לנו היום? 🌟</h2>
-                <div class="custom-background fragment" data-fragment-index="2">
-                    <ul id="summary-list" style="font-size: 1.2em;">
-                        <li class="fragment" data-fragment-index="3">למדנו מהו פרומפט ולמה הוא חשוב</li>
-                        <li class="fragment" data-fragment-index="4">הכרנו את מבנה הפרומפט המושלם</li>
-                        <li class="fragment" data-fragment-index="5">תרגלנו יצירת פרומפטים</li>
-                        <li class="fragment" data-fragment-index="6">התנסינו בעבודה עם מודל שפה</li>
-                        <li class="fragment" data-fragment-index="7">למדנו על בטיחות בשימוש ב-AI</li>
+                <h2>מה היה לנו היום?</h2>
+                <div class="custom-background">
+                    <ul id="summary-list">
+                        <li>למדנו מהו פרומפט ולמה הוא חשוב</li>
+                        <li>הכרנו את מבנה הפרומפט המושלם</li>
+                        <li>תרגלנו יצירת פרומפטים</li>
+                        <li>התנסינו בעבודה עם מודל שפה</li>
+                        <li>למדנו על בטיחות בשימוש ב-AI</li>
                     </ul>
                 </div>
-                <p style="font-size: 1.3em;" class="fragment" data-fragment-index="8">מה למדתם? מה הפתיע אתכם?</p>
-                <div class="svg-container fragment" data-fragment-index="9">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        <defs>
-                            <radialGradient id="grad6" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                                <stop offset="0%" style="stop-color:#4299e1;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#2b6cb0;stop-opacity:1" />
-                            </radialGradient>
-                        </defs>
-                        <circle cx="100" cy="100" r="90" fill="url(#grad6)">
-                            <animate attributeName="r" values="90;95;90" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <text x="100" y="105" font-size="24" text-anchor="middle" fill="#ffffff">סיכום</text>
-                        <path d="M60,80 Q100,120 140,80" stroke="#ffffff" stroke-width="4" fill="none">
-                            <animate attributeName="d" values="M60,80 Q100,120 140,80; M60,100 Q100,60 140,100; M60,80 Q100,120 140,80" dur="3s" repeatCount="indefinite"/>
-                        </path>
-                    </svg>
-                </div>
+                <p>מה למדתם? מה הפתיע אתכם?</p>
             </section>
 
             <section>
-                <h2 class="fragment" data-fragment-index="1">לסיכום... 🚀</h2>
-                <p class="highlight fragment" data-fragment-index="2" style="font-size: 1.5em;">בינה מלאכותית היא כלי מדהים, אבל הכוח האמיתי הוא בידיים שלכם!</p>
-                <div class="svg-container fragment" data-fragment-index="3">
-                    <svg width="200" height="200" viewBox="0 0 200 200">
-                        <defs>
-                            <radialGradient id="grad5" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-                                <stop offset="0%" style="stop-color:#fbd38d;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#1a202c;stop-opacity:1" />
-                            </radialGradient>
-                        </defs>
-                        <circle cx="100" cy="100" r="90" fill="url(#grad5)">
-                            <animate attributeName="r" values="90;95;90" dur="3s" repeatCount="indefinite"/>
-                        </circle>
-                        <path d="M100 20 L120 80 L180 80 L130 120 L150 180 L100 140 L50 180 L70 120 L20 80 L80 80 Z" fill="#f2e9e4">
-                            <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
-                        </path>
-                        <text x="100" y="105" font-size="16" text-anchor="middle" fill="#1a202c">הצלחה!</text>
-                    </svg>
-                </div>
+                <h2>לסיכום...</h2>
+                <p class="highlight">בינה מלאכותית היא כלי מדהים, אבל הכוח האמיתי הוא בידיים שלכם!</p>
             </section>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
     <script>
         Reveal.initialize({
             controls: true,
             progress: true,
             center: true,
             hash: true,
-            transition: 'slide',
-            autoAnimate: true
+            transition: 'slide'
         });
 
         function showRandomPrompt() {
@@ -603,8 +322,9 @@
                 "המציאו משהו חדש שיכול לעזור לאנשים בחיי היומיום"
             ];
             const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-            document.getElementById('random-prompt').textContent = randomPrompt;
-            document.getElementById('random-prompt').classList.add('show-response');
+            const promptElement = document.getElementById('random-prompt');
+            promptElement.textContent = randomPrompt;
+            promptElement.classList.add('show-response');
         }
 
         function checkAnswer(answer) {
@@ -650,49 +370,6 @@
                 }
             });
         });
-
-        // פונקציה להצגת הודעת סיום
-        function showCompletionMessage() {
-            const completionMessage = document.createElement('div');
-            completionMessage.innerHTML = `
-                <h3>כל הכבוד! 🎉</h3>
-                <p>סיימתם את המצגת על בינה מלאכותית ופרומפטים.</p>
-                <p>אתם מוכנים להתחיל ליצור עם AI!</p>
-            `;
-            completionMessage.style.position = 'fixed';
-            completionMessage.style.top = '50%';
-            completionMessage.style.left = '50%';
-            completionMessage.style.transform = 'translate(-50%, -50%)';
-            completionMessage.style.background = 'rgba(66, 153, 225, 0.9)';
-            completionMessage.style.padding = '20px';
-            completionMessage.style.borderRadius = '10px';
-            completionMessage.style.boxShadow = '0 0 10px rgba(0,0,0,0.5)';
-            completionMessage.style.zIndex = '9999';
-            document.body.appendChild(completionMessage);
-
-            setTimeout(() => {
-                completionMessage.style.opacity = '0';
-                completionMessage.style.transition = 'opacity 1s ease-out';
-                setTimeout(() => {
-                    document.body.removeChild(completionMessage);
-                }, 1000);
-            }, 5000);
-        }
-
-        // הוספת אירוע לסיום המצגת
-        Reveal.addEventListener('slidechanged', function(event) {
-            if (event.indexh === Reveal.getTotalSlides() - 1) {
-                showCompletionMessage();
-            }
-        });
-
-        // הוספת אנימציה לכותרות
-        const headers = document.querySelectorAll('h1, h2, h3');
-        headers.forEach(header => {
-            header.innerHTML = header.textContent.split('').map(char => 
-                `<span class="animate-char" style="--char-index: ${Math.random()}">${char}</span>`
-            ).join('');
-        });
     </script>
 </body>
-</html>
+</html> 
