@@ -42,3 +42,9 @@ Then navigate to [http://localhost:8000](http://localhost:8000).
 ## License
 
 MIT
+
+---
+
+⭐ If you find this useful, please star the repo!
+
+*[README בעברית](README.he.md)*
